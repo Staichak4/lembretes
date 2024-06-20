@@ -16,29 +16,29 @@ function executar() {
     5. Sair
     `) 
     
- rl.question(`Escolha uma opção: `, (opcao) => {
+rl.question(`Escolha uma opção: `, (opcao) => {
  	switch (opcao) {
- 	     case '1':
+ 	    case '1':
  	        adicionar()
  	        break;
- 	     case '2':
+ 	    case '2':
  	        listar()
  	        break;
- 	     case '3':
+ 	    case '3':
  	        editar()
  	        break;
- 	     case '4':
- 	        concluir()
+ 	    case '4':
+ 	        marcarConcluida()
  	        break;
- 	     case '5':
+ 	    case '5':
  	        console.log("Fechando o programa!")
  	        rl.close()
  	        break;
- 	     default:
+ 	    default:
  	        console.log('Opção inválida!')
  	        executar()
  	        break;
  	   
- }
- })
+ 		}
+ 	})
  }
