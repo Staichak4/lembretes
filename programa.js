@@ -4,10 +4,10 @@ const rl = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout
 })
+let lembretes = []
+exibirMenu()
 
-executar()
-
-function executar() {
+function exibirMenu() {
     console.log(` 
     1. Adicionar lembrete
     2. Listar lembretes
@@ -42,3 +42,8 @@ rl.question(`Escolha uma opção: `, (opcao) => {
  		}
  	})
  }
+function listar () {
+	for (let i = 0; i < lembretes.length; i++ )
+		console.log(lembretes[i])
+}
+exibirMenu()
