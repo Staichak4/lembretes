@@ -36,12 +36,22 @@ rl.question(`Escolha uma opção: `, (opcao) => {
  	        break;
  	    default:
  	        console.log('Opção inválida!')
- 	        executar()
+ 	        exibirMenu()
  	        break;
  	   
  		}
  	})
- }
+}
+
+function adicionar(){
+	rl.question('Digite o lembrete: ', (lembrete) => {
+		rl.question('Digite o prazo: ', (prazo) => {
+			lembretes.push({ lembrete: lembrete, prazo: prazo})
+			console.log('Lembrete salvo com sucesso. ')
+		})
+	})
+	exibirMenu()
+}
 function listar () {
 	for (let i = 0; i < lembretes.length; i++ )
 		console.log(lembretes[i])
@@ -70,6 +80,6 @@ function editar(){
 			}
 		})
 	}
-}
 
 exibirMenu()
+}
