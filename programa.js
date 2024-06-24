@@ -55,11 +55,11 @@ function adicionar(){
 function listar () {
 	for (let i = 0; i < lembretes.length; i++ )
 		console.log(lembretes[i])
-}	
+}
 function editar(){
 	if(lembretes == 0){
 		console.log('sem lembretes registrados')
-		exibirMenu()
+		executar()
 	}else{
 		rl.question('digite o lembrete que deseja editar:', (opcao) =>{
 			if(opcao > 0 && opcao <= lembretes.length){
@@ -80,5 +80,6 @@ function editar(){
 			}
 		})
 	}
+
 exibirMenu()
 }
