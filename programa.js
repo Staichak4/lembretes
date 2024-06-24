@@ -46,4 +46,30 @@ function listar () {
 	for (let i = 0; i < lembretes.length; i++ )
 		console.log(lembretes[i])
 }
+function editar(){
+	if(lembretes == 0){
+		console.log('sem lembretes registrados')
+		executar()
+	}else{
+		rl.question('digite o lembrete que deseja editar:', (opcao) =>{
+			if(opcao > 0 && opcao <= lembretes.length){
+				rl.question('digite o novo lembrete:',(lembrete) =>{
+				rl.question('digite um novo prazo: ', (prazo) =>{
+				rl.question('digite se já foi concluido: ', (concluido) => {
+                 lembretes[opcao - 1] = {
+					lembrete,
+					prazo,
+					concluido
+				 }
+				 console.log('editado com sucesso')
+				 exibirMenu()
+				})
+				})
+
+				})
+			}
+		})
+	}
+}
+
 exibirMenu()
