@@ -48,33 +48,37 @@ function adicionar(){
 		rl.question('Digite o prazo: ', (prazo) => {
 			lembretes.push({ lembrete: lembrete, prazo: prazo})
 			console.log('Lembrete salvo com sucesso. ')
+			exibirMenu()
 		})
 	})
-	exibirMenu()
 }
 function listar () {
+	if(lembretes.length > 0) {
 	for (let i = 0; i < lembretes.length; i++ )
 		console.log(lembretes[i])
+		exibirMenu()
+	} else {
+		console.log('sem lembretes registrados')
+		exibirMenu()
+	}
 }
 function editar(){
 	if(lembretes == 0){
 		console.log('sem lembretes registrados')
-		executar()
+		exibirMenu()
 	}else{
 		rl.question('digite o lembrete que deseja editar:', (opcao) =>{
 			if(opcao > 0 && opcao <= lembretes.length){
 				rl.question('digite o novo lembrete:',(lembrete) =>{
 				rl.question('digite um novo prazo: ', (prazo) =>{
-				rl.question('digite se já foi concluido: ', (concluido) => {
                  lembretes[opcao - 1] = {
 					lembrete,
 					prazo,
-					concluido
 				 }
 				 console.log('editado com sucesso')
 				 exibirMenu()
-				})
-				})
+				}
+				)
 
 				})
 			}
@@ -82,4 +86,19 @@ function editar(){
 	}
 
 exibirMenu()
+}
+
+function marcarConcluida() {
+	if (lembretes.length <= 0 ) {
+		console.log("Não há nada cadastrado")
+	} else {
+		listar()
+		rl.question('Qual lembrete voce deseja marcar como concluido?', (numero) => {
+			lembretes[numero].concluido = true
+			console.log("Lembrete marcado como concluído")
+			exibirMenu()
+
+		})
+	}
+
 }
